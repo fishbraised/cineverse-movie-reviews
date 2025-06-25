@@ -1,0 +1,9 @@
+.mask-image-edges {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 40%,
+    black 60%,
+    transparent 100%
+  );
+}
