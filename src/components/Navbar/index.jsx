@@ -6,7 +6,7 @@ import { Menu } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <nav className="bg-stone-900 text-white px-6 py-4">
+    <nav className="bg-stone-950 text-white px-6 py-4">
       {/* PC Nav Below */}
 
       <div className="container mx-auto flex justify-between items-center">
