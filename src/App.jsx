@@ -1,12 +1,10 @@
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
-import Trending from "./components/Trending";
+import Home from "./components/Home";
 
 const App = () => (
   <>
-    <Navbar />
-    <Banner />
-    <Trending />
+    <Home />
   </>
 );
 

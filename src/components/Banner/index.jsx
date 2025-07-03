@@ -2,28 +2,38 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import axios from "axios";
+
 import { useState, useEffect } from "react";
 
 import "./index.css";
+
+// 1. Use Map for MovieCards with API.
+
+// 2. Fix banner clipping Bug.
 
 const Banner = () => {
   const [moviesData, setMoviesData] = useState([]);
 
   useEffect(() => {
     const fetchBanners = async () => {
-      const url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&api_key=c1e19b6f0a8f837ae318196e19844fff`;
+      const url = `https://api.themoviedb.org/3/movie/now_playing`;
 
-      const options = {
-        method: "GET",
+      const response = await axios.get(url, {
+        params: {
+          language: "en-US",
+          page: 1,
+          // api_key: "c1e19b6f0a8f837ae318196e19844fff",
+        },
         headers: {
           accept: "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMWUxOWI2ZjBhOGY4MzdhZTMxODE5NmUxOTg0NGZmZiIsIm5iZiI6MTc1MTI4MTEzMS42ODksInN1YiI6IjY4NjI2ZGViNzdhMGQ0Y2E0YTdiNGNkYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nLqvKkx5xOyJOoAX6qitvEZrLJ4hRvBW-bXmS6PG0Ys`,
         },
-      };
+      });
 
-      const response = await fetch(url, options);
-      const data = await response.json();
+      console.log(response.data);
 
-      setMoviesData(data.results);
+      setMoviesData(response.data.results);
     };
 
     fetchBanners();

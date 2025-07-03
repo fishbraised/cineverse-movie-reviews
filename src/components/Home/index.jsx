@@ -1,0 +1,27 @@
+import MovieCard from "../MovieCard";
+
+import "./index.css";
+
+const Home = () => {
+  return (
+    <>
+      <Navbar />
+      <Banner />
+
+      <div className="bg-stone-950 px-8">
+        <h1 className="px-4 py-6 text-white text-2xl font-semibold text-center">
+          Trending Movies
+        </h1>
+
+        <ul className="flex flex-wrap justify-center p-0 list-none gap-x-8">
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export default Home;
