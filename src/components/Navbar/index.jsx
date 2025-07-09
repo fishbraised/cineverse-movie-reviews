@@ -1,8 +1,8 @@
 // import { Link } from "react-router-dom";
 
-import "./index.css";
-
 import { Menu } from "lucide-react";
+
+import "./index.css";
 
 const Navbar = () => {
   return (
@@ -12,9 +12,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div>
           <img
+            className="w-28"
             src="https://res.cloudinary.com/saiuttej/image/upload/v1750187224/CineScope_Logo_bdy2bj.png"
             alt="movies-img"
-            className="w-28"
           />
         </div>
 
@@ -27,7 +27,7 @@ const Navbar = () => {
           </a>
           <a
             to="/watchlist"
-            className="cursor-pointer hover:text-yellow-400 transition duration-150 ease-in-out"
+            className="cursor-pointer hover:text-yellow-400 duration-150 ease-in-out"
           >
             Watchlist
           </a>
@@ -44,13 +44,13 @@ const Navbar = () => {
         <div className="text-base font-medium space-y-2">
           <a
             to="/movies"
-            className="block cursor-pointer hover:text-yellow-400 transition duration-150 ease-in-out"
+            className="block cursor-pointer hover:text-yellow-400 duration-150 ease-in-out"
           >
             Movies
           </a>
           <a
             to="/watchlist"
-            className="block cursor-pointer hover:text-yellow-400 transition duration-150 ease-in-out"
+            className="block cursor-pointer hover:text-yellow-400 duration-150 ease-in-out"
           >
             Watchlist
           </a>

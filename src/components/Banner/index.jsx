@@ -8,10 +8,6 @@ import { useState, useEffect } from "react";
 
 import "./index.css";
 
-// 1. Use Map for MovieCards with API.
-
-// 2. Fix banner clipping Bug.
-
 const Banner = () => {
   const [moviesData, setMoviesData] = useState([]);
 
@@ -52,23 +48,24 @@ const Banner = () => {
   };
 
   return (
-    <Slider {...settings}>
+    <Slider className="bg-stone-950" {...settings}>
       {moviesData.map((eachObj) => (
-        <div className="relative h-[500px]" key={eachObj.id}>
-          {/* Blurred background image. */}
-
+        <div
+          className="relative h-[500px] w-full overflow-hidden"
+          key={eachObj.id}
+        >
+          {/* Blurred Background Image */}
           <img
+            className="absolute inset-0 h-full w-full object-cover filter blur-md scale-110"
             src={`https://image.tmdb.org/t/p/original/${eachObj.backdrop_path}`}
             alt="movie img"
-            className="absolute inset-0 h-full w-full object-cover filter blur-md scale-110"
           />
 
-          {/* Foreground image. */}
-
+          {/* Foreground Image */}
           <img
+            className="relative z-10 h-full mx-auto object-contain mask-image-edges"
             src={`https://image.tmdb.org/t/p/original/${eachObj.backdrop_path}`}
             alt="movie img"
-            className="relative z-10 h-full mx-auto object-contain mask-image-edges"
           />
         </div>
       ))}
