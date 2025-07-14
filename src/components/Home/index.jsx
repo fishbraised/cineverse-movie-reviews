@@ -3,6 +3,7 @@ import MovieCard from "../MovieCard";
 import Pagination from "../Pagination";
 
 import axios from "axios";
+
 import { TailSpin } from "react-loader-spinner";
 
 import { useState, useEffect } from "react";
@@ -113,7 +114,7 @@ const Home = () => {
     <>
       <Banner />
 
-      <div className="bg-stone-950 px-8">
+      <div className="min-h-screen bg-stone-950 px-8">
         <h1 className="px-4 py-6 text-white text-2xl font-semibold text-center">
           Trending Movies
         </h1>
