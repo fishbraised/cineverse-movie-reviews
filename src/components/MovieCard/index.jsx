@@ -2,20 +2,25 @@ import { FaRegBookmark } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 
-import { useState } from "react";
+import WatchlistContext from "../../context/WatchlistContext";
+
+import { useState, useContext } from "react";
 
 import "./index.css";
 
 const MovieCard = (props) => {
   const { cardInfo } = props;
-  const { overview, poster_path, title, vote_average, release_date } = cardInfo;
+  const { overview, poster_path, title, vote_average, release_date, id } =
+    cardInfo;
 
-  console.log("cardInfo: ", cardInfo);
+  const movieContext = useContext(WatchlistContext);
 
-  const [isSaved, setIsSaved] = useState(false);
+  const isSaved = movieContext.watchlistData.find(
+    (eachObj) => id === eachObj.id
+  );
 
   const toggleIsSaved = () => {
-    setIsSaved((prevState) => !prevState);
+    movieContext.decideWatchlist(cardInfo);
   };
 
   const releaseTime = new Date(release_date);
