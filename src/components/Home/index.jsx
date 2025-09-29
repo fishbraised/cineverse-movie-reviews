@@ -86,8 +86,6 @@ const Home = () => {
       try {
         const url = `https://api.themoviedb.org/3/movie/now_playing`;
 
-        // Question: Why can I fetch the MovieCards even if I remove the api_key and Authorization?
-
         const response = await axios.get(url, {
           params: {
             language: "en-US",
@@ -96,7 +94,7 @@ const Home = () => {
           },
           headers: {
             accept: "application/json",
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMWUxOWI2ZjBhOGY4MzdhZTMxODE5NmUxOTg0NGZmZiIsIm5iZiI6MTc1MTI4MTEzMS42ODksInN1YiI6IjY4NjI2ZGViNzdhMGQ0Y2E0YTdiNGNkYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nLqvKkx5xOyJOoAX6qitvEZrLJ4hRvBW-bXmS6PG0Ys`,
+            Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
           },
         });
 
