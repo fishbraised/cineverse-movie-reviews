@@ -1,9 +1,3 @@
-// !! READ
-
-// 1. About the Delete button: decideWatchlist was used because in Watchlist component and toggleIsSaved component, there are two scenarios: one where a single object is being sent (in the deleteMovie and toggeRatingSort methods), and one where an array of objects is being sent (in the toggleIsSaved method.)
-
-// 2. About the undefined bug: I'm not sure if I fixed the bug where it says something is undefined (should be the movieContext.watchlistData) in Watchlist component, because I don't see it now. Before I seem to have fixed it, it could by dealt with temporarily by deleting the watchlistData stored in LocalStorage.
-
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Watchlist from "./components/Watchlist";
@@ -23,8 +17,6 @@ const App = () => {
       setWatchlist(JSON.parse(savedData));
     }
   }, []);
-
-  // I couldn't use watchlistItem.length without the + 1, because there is a case where the last item/movie being removed would trigger the else condition instead, since [].length is treated as false ([] is the value watchlistItem will have when there is only one item/movie let to delete.)
 
   const decideWatchlist = (watchlistItem) => {
     if (watchlistItem.length + 1) {
